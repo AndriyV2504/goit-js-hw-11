@@ -26,3 +26,37 @@ function createImageCard({ webformatURL, largeImageURL, tags, likes, views, comm
   </div>
   `;
 }
+
+export function showNotification(message, type = `info`) {
+  iziToast[type]({
+    title: `Attention`,
+    message: message,
+    position: `topRight`
+  });
+}
+
+export function clearGallery() {
+  const gallery = document.querySelector(`.gallery`);
+  gallery.innerHTML = ``;
+}
+
+export function initLightbox() {
+  lightbox = new SimpleLightbox(`.gallery a`, {
+    captionsData: `alt`,
+    captionDelay: 250,
+  });
+}
+
+function refreshLightbox() {
+  if (lightbox) {
+    lightbox.refresh();
+  }
+}
+
+export function showLoader() {
+  document.querySelector(`.loader`).classList.remove(`hidden`);
+}
+
+export function hideLoader() {
+  document.querySelector(`.loader`).classList.add(`hidden`);
+}
