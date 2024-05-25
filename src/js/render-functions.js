@@ -15,7 +15,11 @@ function createImageCard({ webformatURL, largeImageURL, tags, likes, views, comm
   return `
   <div class="photo-card">
       <a href="${largeImageURL}" class="gallery-link">
-        <img src="${webformatURL}" alt="${tags}" loading="lazy" />
+        <img 
+        width="360px";
+        height="200px";
+        src="${webformatURL}" 
+        alt="${tags}" loading="lazy" />
       </a>
       <div class="info">
         <p class="info-item"><b>Likes:</b> ${likes}</p>
@@ -28,10 +32,11 @@ function createImageCard({ webformatURL, largeImageURL, tags, likes, views, comm
 }
 
 export function showNotification(message, type = `info`) {
-  iziToast[type]({
-    title: `Attention`,
+  iziToast[type]({     
     message: message,
-    position: `topRight`
+    position: `topRight`,
+    padding: `20px`,
+    backgroundColor: `#EF4040`,
   });
 }
 
