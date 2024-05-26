@@ -55,8 +55,6 @@ export function initLightbox() {
 function refreshLightbox() {
   if (lightbox) {
     lightbox.refresh();
-  } else {
-    initLightbox();
   }
 }
 
