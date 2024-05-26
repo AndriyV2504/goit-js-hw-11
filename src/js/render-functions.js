@@ -18,7 +18,7 @@ function createImageCard({ webformatURL, largeImageURL, tags, likes, views, comm
         <img 
         width="360px";
         height="200px";
-        src="${webformatURL}" 
+        src="${webformatURL}"
         alt="${tags}" loading="lazy" />
       </a>
       <div class="info">
@@ -32,7 +32,7 @@ function createImageCard({ webformatURL, largeImageURL, tags, likes, views, comm
 }
 
 export function showNotification(message, type = `info`) {
-  iziToast[type]({     
+  iziToast[type]({
     message: message,
     position: `topRight`,
     padding: `20px`,
@@ -55,6 +55,8 @@ export function initLightbox() {
 function refreshLightbox() {
   if (lightbox) {
     lightbox.refresh();
+  } else {
+    initLightbox();
   }
 }
 
@@ -65,3 +67,7 @@ export function showLoader() {
 export function hideLoader() {
   document.querySelector(`.loader`).classList.add(`hidden`);
 }
+
+document.addEventListener(`DOMContentLoaded`, () => {
+  initLightbox();
+});
